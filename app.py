@@ -7,7 +7,14 @@ from flask import Flask, render_template, Response
 if os.environ.get('CAMERA'):
     Camera = import_module('camera_' + os.environ['CAMERA']).Camera
 else:
-    from camera import Camera
+    from camera_opencv import Camera
+
+# if os.environ.get('CAMERA'):
+#     print("Using camera", os.environ['CAMERA'])
+#     Camera = import_module('camera_' + os.environ['CAMERA']).Camera
+# else:
+#     print("Using demo camera")
+#     from camera import Camera
 
 # Raspberry Pi camera module (requires picamera package)
 # from camera_pi import Camera
